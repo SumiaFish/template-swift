@@ -10,8 +10,10 @@ import UIKit
 
 class HomeViewController: AppViewController {
     
-    private lazy var tableView: AppTableView = AppTableView(frame: .zero, style: .plain)
+    private lazy var tableView: TableView = TableView(frame: .zero, style: .plain)
 
+    private lazy var context = Context(self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,19 +40,8 @@ private extension HomeViewController {
     func initTableView() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        let present = HomePresent()
-        tableView.present = present
-        
-        let adapater = HomeTableViewAdapater()
-        adapater.onRenderCell = { [weak self] indexPath, data in
-            let cell = self?.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-//            let item = adapater.realData[indexPath.section][indexPath.row]
-            cell!.textLabel?.text = String("\(indexPath.section)"+":"+"\(indexPath.row)")
-            return cell!
-        }
-
-        tableView.adapter = adapater
-        
+        context.tableView = tableView
+                
         tableView.hud = view.hud
         
         view.addSubview(tableView)
@@ -58,10 +49,76 @@ private extension HomeViewController {
     
 }
 
-private extension HomeViewController {
+extension HomeViewController {
     
-    class HomeTableViewAdapater: KVTableViewAdapter<[Int]> {
-                        
+    class Context: KVTableView.Context {
+        
+        required init(_ controller: UIViewController) {
+            super.init(controller)            
+            present = Present()
+        }
+        
+    }
+    
+    class TableView: AppTableView {
+        
+        
+        
+    }
+    
+    class Present: KVTableView.Present<[[Int]]> {
+        
+        typealias T = [[Int]]
+        
+        override func loadData(isRefresh: Bool) {
+            guard let tableView = context?.tableView, let adapater = context?.adapter else {
+                return
+            }
+            
+            tableView.updateState(state: .loadding)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                let page = isRefresh ? 1 : adapater.page + 1
+                let hasMore = self.data.count <= 10
+                if isRefresh {
+                    self.data.removeAll()
+                }
+                if hasMore {
+                    var arr: [Int] = []
+                    for _ in 0..<5 {
+                        for i in self.data.count..<self.data.count+10 {
+                            arr.append(i)
+                        }
+                    }
+                    self.data.append(arr)
+                    
+                }
+                adapater.update(data: self.data, page: page, hasMore: hasMore)
+                tableView.updateState(state: .success)
+            }
+        }
+        
+        override func updateView() {
+            super.updateView()
+        }
+        
+        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            //            let item = adapater.realData[indexPath.section][indexPath.row]
+            cell.textLabel?.text = String("\(indexPath.section)"+":"+"\(indexPath.row)")
+            return cell
+        }
+
+    }
+    
+    class Render: KVTableView.Render {
+        
+        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return 100
+        }
+        
     }
     
 }
+
+
+

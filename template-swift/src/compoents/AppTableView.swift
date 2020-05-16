@@ -15,8 +15,6 @@ class AppTableView: KVTableView {
 
         useDefaultHeader()
         useDefaultFooter()
-        present = KVTableViewPresent()
-        adapter = KVTableViewAdapter<Any>()
     }
     
 }

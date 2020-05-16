@@ -8,47 +8,92 @@
 
 import UIKit
 
-class KVTableViewAdapter<ItemType: Any>: NSObject, KVTableViewAdapterProtocol {
+extension KVTableView {
 
-    typealias T = Any
+    class Adapter<ItemType: Any>: NSObject, KVTableViewAdapterProtocol {
+        
+        weak var context: KVTableViewContextProtocol?
+        
+        var data: [T] = []
+                
+        var realData: [ItemType] = []
+        
+        var hasMore: Bool = false
+        
+        var page: Int = 1
 
-    var data: [T] = []
-    
-    var realData: [ItemType] {
-        return data.filter { (it) -> Bool in
-            return it is ItemType
-        }.map { (it) -> ItemType in
-            return it as! ItemType
+        var sections: Int = 1
+        
+        var rowsMap: [Int: Int] = [:]
+        
+        override init() {
+            sections = 1
+            rowsMap[0] = 0
         }
-    }
-    
-    var hasMore: Bool = false
-    
-    var page: Int = 1
-    
-    var onRenderCell: ((IndexPath, [Any]) -> UITableViewCell)?
-    
-    var onRenderSections: (([Any]) -> Int)?
-    
-    var onRenderRows: ((Int, [Any]) -> Int)?
-    
-    func update(data: [T], page: Int, hasMore: Bool) {
-        self.data = data
-        self.page = page
-        self.hasMore = hasMore
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return onRenderSections?(data) ?? 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return onRenderRows?(section, data) ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return onRenderCell?(indexPath, data) ?? UITableViewCell()
-    }
-    
 
+        // MARK: -
+
+        func numberOfSections(in tableView: UITableView) -> Int {
+            return sections
+        }
+        
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return rowsMap[section] ?? 0
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            return UITableViewCell()
+        }
+        
+        // MARK: -
+        
+        func update(data: [T], page: Int, hasMore: Bool) {
+            self.data = data
+            self.page = page
+            self.hasMore = hasMore
+            
+//            realData.removeAll()
+//            let f = data.map { (it) -> ItemType in
+//                return it as! ItemType
+//            }
+//            realData.append(contentsOf: data.filter({ $0 is ItemType }).map({ $0 as! ItemType }))
+        }
+        
+        func updateView() {
+            let adapter = self
+            
+            //
+            var newSections = 0
+            var newRowsMap: [Int: Int] = [:]
+            if let data = adapter.data as? [[Any]] {
+                newSections = data.count
+                for i  in 0..<newSections {
+                    if data.count > i {
+                        newRowsMap[i] = data[i].count
+                    }
+                }
+            } else {
+                newSections = 1
+                newRowsMap[0] = adapter.data.count
+            }
+
+            //
+            sections = newSections
+            rowsMap = newRowsMap
+            //
+            context?.tableView?.reloadData()
+        }
+
+    }
+    
+    class Render: NSObject, KVTableViewRenderProtocol {
+        
+        weak var context: KVTableViewContextProtocol?
+        
+        // MARK: -
+
+        
+        
+    }
+    
 }

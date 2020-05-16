@@ -8,42 +8,64 @@
 
 import UIKit
 
-protocol KVTableViewPresentProtocol: NSObjectProtocol {
+protocol KVTableViewContextProtocol: NSObjectProtocol {
+
+    var controller: UIViewController? { get }
+    
+    var tableView: KVTableViewProrocol? { get set }
+    
+    var adapter: KVTableViewAdapterProtocol? { get set }
         
-    func loadData(tableView: KVTableViewProrocol, isRefresh: Bool)
+    var present: KVTableViewPresentProtocol? { get set }
+    
+    var render: KVTableViewRenderProtocol? { get set }
+    
+    init(_ controller: UIViewController)
+    
+}
+
+protocol KVTableViewPresentProtocol: KVTableViewAdapterProtocol {
+    
+    var context: KVTableViewContextProtocol? { get set }
+            
+    func loadData(isRefresh: Bool)
     
 }
 
 protocol KVTableViewAdapterProtocol: UITableViewDataSource {
         
-    var data: [Any] { get }
+    typealias T = Any
     
+    var context: KVTableViewContextProtocol? { get set }
+        
+    var data: [T] { get }
+        
     var hasMore: Bool { get }
     
     var page: Int { get }
+    
+    func update(data: [T], page: Int, hasMore: Bool)
+    
+    func updateView()
 
-    var onRenderSections: ((_ data: [Any])->Int)? { set get }
+}
+
+protocol KVTableViewRenderProtocol: UITableViewDelegate {
     
-    var onRenderRows: ((_ section: Int, _ data: [Any])->Int)? { set get }
-    
-    var onRenderCell: ((_ indexPath: IndexPath, _ data: [Any])->UITableViewCell)? { set get }
-    
-    func update(data: [Any], page: Int, hasMore: Bool)
+    var context: KVTableViewContextProtocol? { get set }
 
 }
 
 enum KVTableViewState {
 
     case loadding
-    case success(adapter: KVTableViewAdapterProtocol)
+    case success
     case error(error: KVError)
 }
 
-protocol KVTableViewProrocol: NSObjectProtocol {
+protocol KVTableViewProrocol: UITableView {
         
-    var adapter: KVTableViewAdapterProtocol? { get }
-        
-    var present: KVTableViewPresentProtocol? { get }
+    var context: KVTableViewContextProtocol? { get set }
 
     func refresh(_ showRefreshCompoent: Bool)
     
