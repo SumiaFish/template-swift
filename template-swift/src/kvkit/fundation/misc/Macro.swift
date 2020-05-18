@@ -32,6 +32,7 @@ func getIsIPhonexSerious() -> Bool {
 
 func getIsPortrait() -> Bool {
     if #available(iOS 13.0, *) {
+        // TODO
         return false
     } else {
         let statusBarOrientation = UIApplication.shared.statusBarOrientation
@@ -59,6 +60,9 @@ func getConverValue(_ value: Double) -> Double {
 
 let CV = getConverValue
 
+func getRandom(from: Int, to: Int) -> Int {
+    return from + (Int(arc4random()) % (to-from+1))
+}
 
 func KLog<T>(_ message : T, file : String = #file, lineNumber : Int = #line) {
     #if DEBUG

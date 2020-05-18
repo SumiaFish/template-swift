@@ -22,7 +22,7 @@ public struct KVError : Error {
         self.description = nil
     }
     
-    init(msg: String?, code: Int?, description: String?) {
+    init(msg: String?, code: Int?, _ description: String? = nil) {
         self.msg = msg
         self.code = code
         self.description = description

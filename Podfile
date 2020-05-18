@@ -13,6 +13,12 @@ target 'template-swift' do
   
   pod 'MJRefresh'
   
+  pod 'Promises'
+  
+  pod 'SDWebImage'
+  
+  pod 'SVGAPlayer'
+  
   target 'template-swiftTests' do
     inherit! :search_paths
     # Pods for testing

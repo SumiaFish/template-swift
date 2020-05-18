@@ -35,7 +35,13 @@ class KVTableView: UITableView  {
         }
     }
     
-    weak var context: KVTableViewContextProtocol?
+    var present: KVTableViewPresentProtocol? {
+        didSet {
+            present?.tableView = self
+            dataSource = present
+            delegate = present
+        }
+    }
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -70,7 +76,7 @@ class KVTableView: UITableView  {
 private extension KVTableView {
     
     func loadData(isRefresh: Bool) {
-        context?.present?.loadData(isRefresh: isRefresh)
+        present?.loadData(isRefresh: isRefresh)
     }
 }
 
@@ -99,20 +105,20 @@ extension KVTableView: KVTableViewProrocol {
     func updateState(state: KVTableViewState) {
         switch state {
         case .loadding:
-            hud?.updateHud(.loadding("加载中..."))
+            hud?.show(.loadding("加载中..."))
         case .success:
-            hud?.updateHud(.success("加载成功"))
-            context?.adapter?.updateView()
+            hud?.show(.success("加载成功"))
+            present?.updateView()
             mj_header?.endRefreshing()
             mj_footer?.endRefreshing()
             mj_footer?.isHidden = (indexPathsForVisibleRows?.count == 0)
-            if context?.adapter?.hasMore == false {
+            if present?.hasMore == false {
                 mj_footer?.endRefreshingWithNoMoreData()
             } else {
                 mj_footer?.state = .idle
             }
         case .error(_):
-            hud?.updateHud(.error("加载失败"))
+            hud?.show(.error("加载失败"))
             mj_header?.endRefreshing()
             mj_footer?.endRefreshing()
         }

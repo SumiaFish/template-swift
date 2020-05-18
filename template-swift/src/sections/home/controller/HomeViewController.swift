@@ -8,11 +8,29 @@
 
 import UIKit
 
+protocol HomeTableViewContextProtocol: NSObjectProtocol {
+    
+    func pushDetail(item: Any)
+    
+}
+
+protocol HomeTableViewProtocol: HomeTableViewContextProtocol {
+    
+    var context: HomeTableViewContextProtocol? { get set }
+    
+    var homePresent: HomePresentProtocol? { get set }
+    
+}
+
+protocol HomePresentProtocol: KVTableViewPresentProtocol {
+    
+    var homeTableView: HomeTableViewProtocol? { get set }
+    
+}
+
 class HomeViewController: AppViewController {
     
     private lazy var tableView: TableView = TableView(frame: .zero, style: .plain)
-
-    private lazy var context = Context(self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +49,7 @@ class HomeViewController: AppViewController {
     
 }
 
+/// 在这里做业务操作
 private extension HomeViewController {
     
     func initView() {
@@ -40,40 +59,67 @@ private extension HomeViewController {
     func initTableView() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        context.tableView = tableView
-                
+        tableView.context = self
+        let present = Present()
+        tableView.present = present
+        tableView.homePresent = present
+        present.tableView = tableView
+        present.homeTableView = tableView
+ 
+//        ??? TODO
+        tableView.delegate = self
+ 
         tableView.hud = view.hud
         
         view.addSubview(tableView)
     }
     
+    
+    
 }
+
+extension HomeViewController: HomeTableViewContextProtocol {
+    
+    func pushDetail(item: Any) {
+        KLog("前往详情页...")
+    }
+    
+}
+
+extension HomeViewController: UITableViewDelegate {
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 100
+//    }
+    
+}
+
 
 extension HomeViewController {
     
-    class Context: KVTableView.Context {
+    class TableView: AppTableView, HomeTableViewProtocol {
         
-        required init(_ controller: UIViewController) {
-            super.init(controller)            
-            present = Present()
+        weak var context: HomeTableViewContextProtocol?
+        
+        var homePresent: HomePresentProtocol?
+        
+        func pushDetail(item: Any) {
+            context?.pushDetail(item: item)
         }
         
     }
     
-    class TableView: AppTableView {
+    class Present: KVTableView.Present<[Int]>, HomePresentProtocol {
         
+        typealias T = [Int]
         
-        
-    }
-    
-    class Present: KVTableView.Present<[[Int]]> {
-        
-        typealias T = [[Int]]
+        weak var homeTableView: HomeTableViewProtocol?
         
         override func loadData(isRefresh: Bool) {
-            guard let tableView = context?.tableView, let adapater = context?.adapter else {
+            guard let tableView = self.tableView else {
                 return
             }
+            let adapater = self
             
             tableView.updateState(state: .loadding)
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
@@ -96,28 +142,24 @@ extension HomeViewController {
                 tableView.updateState(state: .success)
             }
         }
-        
-        override func updateView() {
-            super.updateView()
-        }
-        
+
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             //            let item = adapater.realData[indexPath.section][indexPath.row]
             cell.textLabel?.text = String("\(indexPath.section)"+":"+"\(indexPath.row)")
             return cell
         }
-
-    }
-    
-    class Render: KVTableView.Render {
+        
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            homeTableView?.pushDetail(item: realData[indexPath.section][indexPath.row])
+        }
         
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return 100
         }
-        
+
     }
-    
+
 }
 
 

@@ -10,7 +10,7 @@ import UIKit
 
 extension KVTableView {
     
-    class Present<ItemType: Any>: Adapter<ItemType>, KVTableViewPresentProtocol {
+    class Present<ItemType: Any>: Render<ItemType>, KVTableViewPresentProtocol {
                 
         func loadData(isRefresh: Bool) {
             

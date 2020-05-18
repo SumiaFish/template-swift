@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04385FDD247171C4005041FC /* GiftChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04385FDB247171C3005041FC /* GiftChooseView.swift */; };
+		04385FE02471723D005041FC /* LiveRoomToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04385FDE2471723D005041FC /* LiveRoomToolView.swift */; };
+		04385FE12471723D005041FC /* LiveRoomToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04385FDF2471723D005041FC /* LiveRoomToolView.xib */; };
+		04385FE424718532005041FC /* GiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04385FE224718532005041FC /* GiftCell.swift */; };
+		04385FE524718532005041FC /* GiftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04385FE324718532005041FC /* GiftCell.xib */; };
+		04385FE824719213005041FC /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04385FE724719213005041FC /* UIButton+.swift */; };
+		04385FEB2471AF1F005041FC /* MsgData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04385FE92471AF1F005041FC /* MsgData.swift */; };
+		04385FEC2471AF1F005041FC /* SVGAData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04385FEA2471AF1F005041FC /* SVGAData.swift */; };
+		04385FF02471AF5D005041FC /* WeakWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04385FEE2471AF5D005041FC /* WeakWrapper.swift */; };
+		04385FF12471AF5D005041FC /* WeakArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04385FEF2471AF5D005041FC /* WeakArray.swift */; };
+		04385FF92471B53E005041FC /* GiftChooseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04385FF82471B53E005041FC /* GiftChooseView.xib */; };
+		04385FFC2471B5CC005041FC /* LiveRoomMsgListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04385FFB2471B5CC005041FC /* LiveRoomMsgListView.swift */; };
+		04385FFE2471BA43005041FC /* LiveRoomPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04385FFD2471BA43005041FC /* LiveRoomPresent.swift */; };
 		0460982B246E8B2A00BA6FD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0460982A246E8B2A00BA6FD5 /* AppDelegate.swift */; };
 		0460982D246E8B2A00BA6FD5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0460982C246E8B2A00BA6FD5 /* SceneDelegate.swift */; };
 		0460982F246E8B2A00BA6FD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0460982E246E8B2A00BA6FD5 /* ViewController.swift */; };
@@ -24,7 +37,6 @@
 		04C99114246EDAE8008DDA41 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C99113246EDAE8008DDA41 /* HomeViewController.swift */; };
 		04C99116246EDB63008DDA41 /* KVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C99115246EDB63008DDA41 /* KVViewController.swift */; };
 		04C9911A246EDCAD008DDA41 /* KVHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C99119246EDCAD008DDA41 /* KVHud.swift */; };
-		04C9911C246EDDB9008DDA41 /* AppHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C9911B246EDDB9008DDA41 /* AppHud.swift */; };
 		04C9911E246EE63F008DDA41 /* AppStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C9911D246EE63F008DDA41 /* AppStateView.swift */; };
 		04C99120246EE649008DDA41 /* AppStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C9911F246EE649008DDA41 /* AppStateView.xib */; };
 		04C99123246EE76D008DDA41 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C99122246EE76D008DDA41 /* UIView+.swift */; };
@@ -42,6 +54,10 @@
 		04C99146246F03C1008DDA41 /* KVTableViewPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C99145246F03C1008DDA41 /* KVTableViewPresent.swift */; };
 		04C99148246F0B0B008DDA41 /* AppTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C99147246F0B0B008DDA41 /* AppTableView.swift */; };
 		04C99150247077A4008DDA41 /* KVTableViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C9914F247077A4008DDA41 /* KVTableViewContext.swift */; };
+		04C9915324709597008DDA41 /* KVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C9915224709597008DDA41 /* KVView.swift */; };
+		04C991582470A353008DDA41 /* LiveRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C991572470A353008DDA41 /* LiveRoomViewController.swift */; };
+		04C991702471418D008DDA41 /* GiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C9916F2471418D008DDA41 /* GiftData.swift */; };
+		04C9917724716504008DDA41 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C9917624716504008DDA41 /* data.json */; };
 		57E3D19C52C98A40B3A8F40A /* Pods_template_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B6B4C4B0D69176A06524D7 /* Pods_template_swift.framework */; };
 		941699E181A805D102FBC9F0 /* Pods_template_swift_template_swiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3ADF15197A70386EB1D90EA /* Pods_template_swift_template_swiftUITests.framework */; };
 		9C8EDE5F69606215D9397422 /* Pods_template_swiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DDDC4C2FB4CE462CD4E1289 /* Pods_template_swiftTests.framework */; };
@@ -65,6 +81,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04385FDB247171C3005041FC /* GiftChooseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftChooseView.swift; sourceTree = "<group>"; };
+		04385FDE2471723D005041FC /* LiveRoomToolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveRoomToolView.swift; sourceTree = "<group>"; };
+		04385FDF2471723D005041FC /* LiveRoomToolView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveRoomToolView.xib; sourceTree = "<group>"; };
+		04385FE224718532005041FC /* GiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCell.swift; sourceTree = "<group>"; };
+		04385FE324718532005041FC /* GiftCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftCell.xib; sourceTree = "<group>"; };
+		04385FE724719213005041FC /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		04385FE92471AF1F005041FC /* MsgData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgData.swift; sourceTree = "<group>"; };
+		04385FEA2471AF1F005041FC /* SVGAData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGAData.swift; sourceTree = "<group>"; };
+		04385FEE2471AF5D005041FC /* WeakWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakWrapper.swift; sourceTree = "<group>"; };
+		04385FEF2471AF5D005041FC /* WeakArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakArray.swift; sourceTree = "<group>"; };
+		04385FF82471B53E005041FC /* GiftChooseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftChooseView.xib; sourceTree = "<group>"; };
+		04385FFB2471B5CC005041FC /* LiveRoomMsgListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveRoomMsgListView.swift; sourceTree = "<group>"; };
+		04385FFD2471BA43005041FC /* LiveRoomPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveRoomPresent.swift; sourceTree = "<group>"; };
 		04609827246E8B2A00BA6FD5 /* template-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "template-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0460982A246E8B2A00BA6FD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0460982C246E8B2A00BA6FD5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,7 +117,6 @@
 		04C99113246EDAE8008DDA41 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		04C99115246EDB63008DDA41 /* KVViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVViewController.swift; sourceTree = "<group>"; };
 		04C99119246EDCAD008DDA41 /* KVHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVHud.swift; sourceTree = "<group>"; };
-		04C9911B246EDDB9008DDA41 /* AppHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHud.swift; sourceTree = "<group>"; };
 		04C9911D246EE63F008DDA41 /* AppStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateView.swift; sourceTree = "<group>"; };
 		04C9911F246EE649008DDA41 /* AppStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppStateView.xib; sourceTree = "<group>"; };
 		04C99122246EE76D008DDA41 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -106,6 +134,10 @@
 		04C99145246F03C1008DDA41 /* KVTableViewPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVTableViewPresent.swift; sourceTree = "<group>"; };
 		04C99147246F0B0B008DDA41 /* AppTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTableView.swift; sourceTree = "<group>"; };
 		04C9914F247077A4008DDA41 /* KVTableViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVTableViewContext.swift; sourceTree = "<group>"; };
+		04C9915224709597008DDA41 /* KVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVView.swift; sourceTree = "<group>"; };
+		04C991572470A353008DDA41 /* LiveRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveRoomViewController.swift; sourceTree = "<group>"; };
+		04C9916F2471418D008DDA41 /* GiftData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftData.swift; sourceTree = "<group>"; };
+		04C9917624716504008DDA41 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		17B6B4C4B0D69176A06524D7 /* Pods_template_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_template_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BF2AFFB4BD8CA16E099E440 /* Pods-template-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-template-swift.release.xcconfig"; path = "Target Support Files/Pods-template-swift/Pods-template-swift.release.xcconfig"; sourceTree = "<group>"; };
 		22421E9931A24C5E5C0408C1 /* Pods-template-swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-template-swiftTests.release.xcconfig"; path = "Target Support Files/Pods-template-swiftTests/Pods-template-swiftTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +177,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04385FE624719200005041FC /* button */ = {
+			isa = PBXGroup;
+			children = (
+				04385FE724719213005041FC /* UIButton+.swift */,
+			);
+			path = button;
+			sourceTree = "<group>";
+		};
+		04385FED2471AF53005041FC /* array */ = {
+			isa = PBXGroup;
+			children = (
+				04385FEF2471AF5D005041FC /* WeakArray.swift */,
+				04385FEE2471AF5D005041FC /* WeakWrapper.swift */,
+			);
+			path = array;
+			sourceTree = "<group>";
+		};
+		04385FF22471B233005041FC /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				04385FDE2471723D005041FC /* LiveRoomToolView.swift */,
+				04385FDF2471723D005041FC /* LiveRoomToolView.xib */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
+		04385FF32471B23C005041FC /* chooseGift */ = {
+			isa = PBXGroup;
+			children = (
+				04385FDB247171C3005041FC /* GiftChooseView.swift */,
+				04385FF82471B53E005041FC /* GiftChooseView.xib */,
+				04385FE224718532005041FC /* GiftCell.swift */,
+				04385FE324718532005041FC /* GiftCell.xib */,
+			);
+			path = chooseGift;
+			sourceTree = "<group>";
+		};
+		04385FF62471B26B005041FC /* live */ = {
+			isa = PBXGroup;
+			children = (
+				04C99133246EF4C4008DDA41 /* controller */,
+			);
+			path = live;
+			sourceTree = "<group>";
+		};
+		04385FFA2471B57F005041FC /* msg */ = {
+			isa = PBXGroup;
+			children = (
+				04385FFB2471B5CC005041FC /* LiveRoomMsgListView.swift */,
+			);
+			path = msg;
+			sourceTree = "<group>";
+		};
 		0460981E246E8B2A00BA6FD5 = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +288,7 @@
 		0460985A246E8B4200BA6FD5 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				04C99175247164E6008DDA41 /* resource */,
 				04609861246E8C1900BA6FD5 /* global */,
 				0460985B246E8B4700BA6FD5 /* kvkit */,
 				04C9910C246EDA75008DDA41 /* compoents */,
@@ -223,6 +309,7 @@
 		0460985C246E8B4D00BA6FD5 /* fundation */ = {
 			isa = PBXGroup;
 			children = (
+				04385FED2471AF53005041FC /* array */,
 				04C9914C246F3461008DDA41 /* operation */,
 				04C99128246EE8DC008DDA41 /* NSObject */,
 				04C99103246ED987008DDA41 /* misc */,
@@ -296,6 +383,7 @@
 		04C99108246EDA24008DDA41 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				04385FE624719200005041FC /* button */,
 				04C9913E246EFF48008DDA41 /* listView */,
 				04C99124246EE84F008DDA41 /* UIColor */,
 				04C99118246EDC9E008DDA41 /* hud */,
@@ -318,13 +406,8 @@
 		04C9910C246EDA75008DDA41 /* compoents */ = {
 			isa = PBXGroup;
 			children = (
-				04C9912C246EF001008DDA41 /* AppViewController.swift */,
-				04C9910E246EDA93008DDA41 /* AppNavigationController.swift */,
-				04C9911B246EDDB9008DDA41 /* AppHud.swift */,
-				04C9911D246EE63F008DDA41 /* AppStateView.swift */,
-				04C9911F246EE649008DDA41 /* AppStateView.xib */,
-				04C99130246EF4B1008DDA41 /* AppTabbarController.swift */,
-				04C99147246F0B0B008DDA41 /* AppTableView.swift */,
+				04C9916E2471417F008DDA41 /* data */,
+				04C9916D24714173008DDA41 /* view */,
 			);
 			path = compoents;
 			sourceTree = "<group>";
@@ -355,6 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				04C99122246EE76D008DDA41 /* UIView+.swift */,
+				04C9915224709597008DDA41 /* KVView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -386,7 +470,8 @@
 		04C99132246EF4BD008DDA41 /* live */ = {
 			isa = PBXGroup;
 			children = (
-				04C99133246EF4C4008DDA41 /* controller */,
+				04385FF62471B26B005041FC /* live */,
+				04C991562470A331008DDA41 /* room */,
 			);
 			path = live;
 			sourceTree = "<group>";
@@ -448,6 +533,73 @@
 			children = (
 			);
 			path = operation;
+			sourceTree = "<group>";
+		};
+		04C991562470A331008DDA41 /* room */ = {
+			isa = PBXGroup;
+			children = (
+				04C9916B2470C994008DDA41 /* controller */,
+				04C9916A2470C98D008DDA41 /* present */,
+				04C9915F2470C0EC008DDA41 /* view */,
+			);
+			path = room;
+			sourceTree = "<group>";
+		};
+		04C9915F2470C0EC008DDA41 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				04385FFA2471B57F005041FC /* msg */,
+				04385FF32471B23C005041FC /* chooseGift */,
+				04385FF22471B233005041FC /* tool */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		04C9916A2470C98D008DDA41 /* present */ = {
+			isa = PBXGroup;
+			children = (
+				04385FFD2471BA43005041FC /* LiveRoomPresent.swift */,
+			);
+			path = present;
+			sourceTree = "<group>";
+		};
+		04C9916B2470C994008DDA41 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				04C991572470A353008DDA41 /* LiveRoomViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		04C9916D24714173008DDA41 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				04C9912C246EF001008DDA41 /* AppViewController.swift */,
+				04C9910E246EDA93008DDA41 /* AppNavigationController.swift */,
+				04C9911D246EE63F008DDA41 /* AppStateView.swift */,
+				04C9911F246EE649008DDA41 /* AppStateView.xib */,
+				04C99130246EF4B1008DDA41 /* AppTabbarController.swift */,
+				04C99147246F0B0B008DDA41 /* AppTableView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		04C9916E2471417F008DDA41 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				04C9916F2471418D008DDA41 /* GiftData.swift */,
+				04385FE92471AF1F005041FC /* MsgData.swift */,
+				04385FEA2471AF1F005041FC /* SVGAData.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		04C99175247164E6008DDA41 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				04C9917624716504008DDA41 /* data.json */,
+			);
+			path = resource;
 			sourceTree = "<group>";
 		};
 		1EFE1D71B496CD988AAA32B8 /* Frameworks */ = {
@@ -583,9 +735,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				04609837246E8B2E00BA6FD5 /* LaunchScreen.storyboard in Resources */,
+				04385FE12471723D005041FC /* LiveRoomToolView.xib in Resources */,
+				04C9917724716504008DDA41 /* data.json in Resources */,
 				04609834246E8B2E00BA6FD5 /* Assets.xcassets in Resources */,
 				04C99120246EE649008DDA41 /* AppStateView.xib in Resources */,
+				04385FF92471B53E005041FC /* GiftChooseView.xib in Resources */,
 				04609832246E8B2A00BA6FD5 /* Main.storyboard in Resources */,
+				04385FE524718532005041FC /* GiftCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,30 +874,42 @@
 				0460982F246E8B2A00BA6FD5 /* ViewController.swift in Sources */,
 				04C9912F246EF4A3008DDA41 /* KVTabbarController.swift in Sources */,
 				04C99142246EFFAB008DDA41 /* KVListViewProtocol.swift in Sources */,
+				04385FEB2471AF1F005041FC /* MsgData.swift in Sources */,
 				04C9911E246EE63F008DDA41 /* AppStateView.swift in Sources */,
 				04C99105246ED9A1008DDA41 /* Macro.swift in Sources */,
 				04C99116246EDB63008DDA41 /* KVViewController.swift in Sources */,
+				04385FDD247171C4005041FC /* GiftChooseView.swift in Sources */,
+				04C991702471418D008DDA41 /* GiftData.swift in Sources */,
+				04385FE02471723D005041FC /* LiveRoomToolView.swift in Sources */,
+				04385FEC2471AF1F005041FC /* SVGAData.swift in Sources */,
+				04C9915324709597008DDA41 /* KVView.swift in Sources */,
 				04C9913D246EF502008DDA41 /* LiveViewController.swift in Sources */,
 				04C99140246EFF89008DDA41 /* KVTableView.swift in Sources */,
 				04C9912D246EF001008DDA41 /* AppViewController.swift in Sources */,
 				0460982B246E8B2A00BA6FD5 /* AppDelegate.swift in Sources */,
 				04609860246E8C1400BA6FD5 /* KVHttpTool.swift in Sources */,
 				04C99148246F0B0B008DDA41 /* AppTableView.swift in Sources */,
+				04C991582470A353008DDA41 /* LiveRoomViewController.swift in Sources */,
 				04C9913B246EF4EF008DDA41 /* PersonalViewController.swift in Sources */,
+				04385FFE2471BA43005041FC /* LiveRoomPresent.swift in Sources */,
+				04385FF12471AF5D005041FC /* WeakArray.swift in Sources */,
 				04C99123246EE76D008DDA41 /* UIView+.swift in Sources */,
 				04C99114246EDAE8008DDA41 /* HomeViewController.swift in Sources */,
 				04C99146246F03C1008DDA41 /* KVTableViewPresent.swift in Sources */,
+				04385FF02471AF5D005041FC /* WeakWrapper.swift in Sources */,
 				04C9912A246EE8F5008DDA41 /* NSObject+.swift in Sources */,
 				04C9910B246EDA47008DDA41 /* KVNavigationController.swift in Sources */,
 				04609864246E8C2A00BA6FD5 /* pch.swift in Sources */,
 				04C99137246EF4DC008DDA41 /* ImViewController.swift in Sources */,
+				04385FFC2471B5CC005041FC /* LiveRoomMsgListView.swift in Sources */,
 				04C9911A246EDCAD008DDA41 /* KVHud.swift in Sources */,
 				04C99150247077A4008DDA41 /* KVTableViewContext.swift in Sources */,
+				04385FE824719213005041FC /* UIButton+.swift in Sources */,
 				0460982D246E8B2A00BA6FD5 /* SceneDelegate.swift in Sources */,
 				04C99131246EF4B1008DDA41 /* AppTabbarController.swift in Sources */,
 				04C99102246ED925008DDA41 /* KVError.swift in Sources */,
 				04C99144246F00B9008DDA41 /* KVTableViewAdapter.swift in Sources */,
-				04C9911C246EDDB9008DDA41 /* AppHud.swift in Sources */,
+				04385FE424718532005041FC /* GiftCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

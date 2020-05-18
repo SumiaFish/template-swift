@@ -13,7 +13,7 @@ class AppViewController: KVViewController {
     override var prefersStatusBarHidden: Bool { false }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {.default}
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +23,16 @@ class AppViewController: KVViewController {
     }
     
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+    }
+    
     /*
     // MARK: - Navigation
 

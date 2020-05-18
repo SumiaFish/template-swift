@@ -8,35 +8,27 @@
 
 import UIKit
 
-protocol KVTableViewContextProtocol: NSObjectProtocol {
-
-    var controller: UIViewController? { get }
-    
-    var tableView: KVTableViewProrocol? { get set }
-    
-    var adapter: KVTableViewAdapterProtocol? { get set }
-        
-    var present: KVTableViewPresentProtocol? { get set }
-    
-    var render: KVTableViewRenderProtocol? { get set }
-    
-    init(_ controller: UIViewController)
-    
-}
-
-protocol KVTableViewPresentProtocol: KVTableViewAdapterProtocol {
-    
-    var context: KVTableViewContextProtocol? { get set }
-            
-    func loadData(isRefresh: Bool)
-    
-}
+//protocol KVTableViewContextProtocol: NSObjectProtocol {
+//
+//    var controller: UIViewController? { get }
+//
+//    var tableView: KVTableViewProrocol? { get set }
+//
+//    var present: KVTableViewPresentProtocol? { get set }
+//
+//    var render: KVTableViewRenderProtocol? { get set }
+//
+//    var adapter: KVTableViewAdapterProtocol? { get set }
+//
+//    init(_ controller: UIViewController)
+//
+//}
 
 protocol KVTableViewAdapterProtocol: UITableViewDataSource {
         
     typealias T = Any
     
-    var context: KVTableViewContextProtocol? { get set }
+    var tableView: KVTableViewProrocol? { get set }
         
     var data: [T] { get }
         
@@ -50,10 +42,14 @@ protocol KVTableViewAdapterProtocol: UITableViewDataSource {
 
 }
 
-protocol KVTableViewRenderProtocol: UITableViewDelegate {
-    
-    var context: KVTableViewContextProtocol? { get set }
+protocol KVTableViewRenderProtocol: KVTableViewAdapterProtocol, UITableViewDelegate {
 
+}
+
+protocol KVTableViewPresentProtocol: KVTableViewRenderProtocol {
+            
+    func loadData(isRefresh: Bool)
+    
 }
 
 enum KVTableViewState {
@@ -65,7 +61,7 @@ enum KVTableViewState {
 
 protocol KVTableViewProrocol: UITableView {
         
-    var context: KVTableViewContextProtocol? { get set }
+    var present: KVTableViewPresentProtocol? { get set }
 
     func refresh(_ showRefreshCompoent: Bool)
     

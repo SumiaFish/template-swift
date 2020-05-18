@@ -10,8 +10,9 @@ import UIKit
 
 extension UIView {
     
-    static func loadViewFromNib() -> Self? {
-        return Bundle.main.loadNibNamed(self.className, owner: nil, options: nil)?.last as? Self
+    @objc class func loadViewFromNib() -> Self? {
+        let res = Bundle.main.loadNibNamed(self.className, owner: nil, options: nil)?.last as? Self
+        return res
     }
     
-}
+} 

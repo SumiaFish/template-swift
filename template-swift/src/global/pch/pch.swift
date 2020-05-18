@@ -13,3 +13,9 @@ import UIKit
 @_exported import MBProgressHUD
 
 @_exported import MJRefresh
+
+@_exported import Promise
+
+@_exported import SDWebImage
+
+@_exported import SVGAPlayer

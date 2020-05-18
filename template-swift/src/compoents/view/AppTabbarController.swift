@@ -13,6 +13,8 @@ class AppTabbarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .white
+        
         let homeNav = AppNavigationController(rootViewController: HomeViewController())
         homeNav.title = "首页"
         

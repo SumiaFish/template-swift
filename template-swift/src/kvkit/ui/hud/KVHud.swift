@@ -16,13 +16,28 @@ enum KVHudState {
     case success(_ text: String?)
     case error(_ text: String?)
     case hide
+    
+    static func showKVError(_ error: Any) -> KVHudState {
+        if let error = error as? KVError {
+            return .error(error.msg)
+        }
+        return .error(nil)
+    }
+    
+    static func defaultLoadding(_ text: String = "加载中...") -> KVHudState {
+        return .loadding(text)
+    }
+    
+    static func defaultSuccess(_ text: String = "加载完成") -> KVHudState {
+        return .success(text)
+    }
 }
 
 protocol KVHudProtocol: UIView {
     
 //    var context: UIView? { get set }
     
-    func updateHud(_ state: KVHudState)
+    func show(_ state: KVHudState)
     
 }
 
@@ -30,7 +45,7 @@ extension KVHudProtocol {
     
 //    var context: UIView? { nil }
     
-    func updateHud(_ state: KVHudState) {}
+    func show(_ state: KVHudState) {}
 }
 
 class KVBaseHud: UIView {
@@ -97,7 +112,7 @@ class KVBaseHud: UIView {
 
 extension KVBaseHud: KVHudProtocol {
     
-    func updateHud(_ state: KVHudState) {
+    func show(_ state: KVHudState) {
         switch state {
         case .loadding(let text):
             showLoadding(text)
@@ -185,4 +200,38 @@ private extension KVHud {
         self.mbphud = mbphud
     }
     
+}
+
+extension UIView {
+
+    private static var UIViewHudHudKey: Void?
+    var hud: KVHudProtocol? {
+        set {
+            if let hud = self.hud {
+                hud.removeFromSuperview()
+            }
+            objc_setAssociatedObject(self, &UIView.UIViewHudHudKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+        get {
+            return objc_getAssociatedObject(self, &UIView.UIViewHudHudKey) as? KVHudProtocol
+        }
+    }
+}
+
+
+extension UIView {
+    
+    func useDefaultHud() {
+        let view = KVHud()
+        addSubview(view)
+        view.hide()
+        hud = view
+    }
+    
+    func useStateViewHud() {
+        let view = AppStateView.loadViewFromNib()!
+        addSubview(view)
+        view.hide()
+        hud = view
+    }
 }

@@ -12,7 +12,7 @@ extension KVTableView {
 
     class Adapter<ItemType: Any>: NSObject, KVTableViewAdapterProtocol {
         
-        weak var context: KVTableViewContextProtocol?
+        weak var tableView: KVTableViewProrocol?
         
         var data: [T] = []
                 
@@ -52,11 +52,11 @@ extension KVTableView {
             self.page = page
             self.hasMore = hasMore
             
-//            realData.removeAll()
+            realData.removeAll()
 //            let f = data.map { (it) -> ItemType in
 //                return it as! ItemType
 //            }
-//            realData.append(contentsOf: data.filter({ $0 is ItemType }).map({ $0 as! ItemType }))
+            realData.append(contentsOf: data.filter({ $0 is ItemType }).map({ $0 as! ItemType }))
         }
         
         func updateView() {
@@ -81,14 +81,12 @@ extension KVTableView {
             sections = newSections
             rowsMap = newRowsMap
             //
-            context?.tableView?.reloadData()
+            tableView?.reloadData()
         }
 
     }
     
-    class Render: NSObject, KVTableViewRenderProtocol {
-        
-        weak var context: KVTableViewContextProtocol?
+    class Render<ItemType: Any>: Adapter<ItemType>, KVTableViewRenderProtocol {
         
         // MARK: -
 
